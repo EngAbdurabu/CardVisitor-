@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}لوحة تحكم المسؤول{% endblock %}
+{% block content %}
+<h2 class="dashboard-title">لوحة تحكم المسؤول</h2>
+
+<div class="table-container">
+    <table class="dashboard-table">
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>البريد</th>
+                <th>الهاتف</th>
+                <th>تاريخ التسجيل</th>
+                <th>تأكيد الحضور</th>
+                <th>الحضور الفعلي</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in visitors %}
+            <tr>
+                <td>{{ visitor.full_name }}</td>
+                <td>{{ visitor.email }}</td>
+                <td>{{ visitor.phone }}</td>
+                <td>{{ visitor.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td class="{{ 'status-yes' if visitor.confirmed else 'status-no' }}">
+                    {{ '✅' if visitor.confirmed else '❌' }}
+                </td>
+                <td class="{{ 'status-yes' if visitor.attended else 'status-no' }}">
+                    {{ '✅' if visitor.attended else '❌' }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="admin-buttons">
+    <a href="{{ url_for('admin_logout') }}" class="btn logout-btn">🚪 تسجيل الخروج</a>
+    <a href="{{ url_for('scanner') }}" class="btn scan-btn">📷 ماسح QR</a>
+</div>
+<form action="{{ url_for('delete_all_data') }}" method="post" onsubmit="return confirm('هل أنت متأكد من حذف كل البيانات؟');">
+    <button type="submit" class="btn btn-danger">🗑️ حذف كل البيانات</button>
+</form>
+{% endblock %}

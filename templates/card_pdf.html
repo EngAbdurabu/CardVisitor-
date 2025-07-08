@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ 'ar' if is_arabic else 'en' }}" dir="{{ 'rtl' if is_arabic else 'ltr' }}">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      padding: 30px;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { color: #004aad; }
+    img {
+      max-width: 180px;
+      border-radius: 10px;
+      display: block;
+      margin: 20px auto;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #004aad;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+    }
+    .info {
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% if is_arabic %}
+      <h2>🎉 بطاقة الزائر</h2>
+      <p>شكرًا لك {{ visitor.full_name }} على قبول دعوتنا لحضور مناسبة عرض منتجنا الجديد!</p>
+      <img src="{{ image_path }}" alt="صورة الزائر">
+      <div class="info">
+        <p><strong>👤 الاسم:</strong> {{ visitor.full_name }}</p>
+        <p><strong>📧 البريد:</strong> {{ visitor.email }}</p>
+        <p><strong>📱 الهاتف:</strong> {{ visitor.phone }}</p>
+        <p><strong>🕒 تاريخ التسجيل:</strong> {{ visitor.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+      </div>
+      <h4>📌 تعليمات:</h4>
+      <ul>
+        <li>الدخول مسموح فقط لمن يملك هذه الدعوة.</li>
+        <li>يرجى إظهار رمز QR عند الدخول.</li>
+        <li>الدعوة صالحة لمرة واحدة فقط.</li>
+      </ul>
+      <img src="{{ qr_path }}" alt="رمز QR">
+      <p style="text-align:center;">
+        <a href="{{ confirm_url }}" class="btn">✅ تأكيد الحضور</a>
+      </p>
+    {% else %}
+      <h2>🎉 Visitor Pass</h2>
+      <p>Thank you {{ visitor.full_name }} for accepting our invitation to the launch of our new product!</p>
+      <img src="{{ image_path }}" alt="Visitor Image">
+      <div class="info">
+        <p><strong>👤 Name:</strong> {{ visitor.full_name }}</p>
+        <p><strong>📧 Email:</strong> {{ visitor.email }}</p>
+        <p><strong>📱 Phone:</strong> {{ visitor.phone }}</p>
+        <p><strong>🕒 Registered At:</strong> {{ visitor.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+      </div>
+      <h4>📌 Guidelines:</h4>
+      <ul>
+        <li>Entry is allowed only with this invitation.</li>
+        <li>Please show your QR code at the entrance.</li>
+        <li>This invitation is valid for one-time use only.</li>
+      </ul>
+      <img src="{{ qr_path }}" alt="QR Code">
+      <p style="text-align:center;">
+        <a href="{{ confirm_url }}" class="btn">✅ Confirm Attendance</a>
+      </p>
+    {% endif %}
+    
+    <div class="footer">
+      &copy; 2025 SkyTech | All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

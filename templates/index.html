@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}تسجيل زائر جديد{% endblock %}
+
+{% block content %}
+<h2>تسجيل زائر جديد</h2>
+
+<form action="/" method="POST" enctype="multipart/form-data">
+  <input type="text" name="full_name" placeholder="الاسم الكامل" required />
+  <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+  <input type="tel" name="phone" placeholder=" رقم الهاتف" required dir="rtl" />
+  <input type="file" name="photo" placeholder="الصورة الشخصية ">
+  
+  <button type="submit">تسجيل</button>
+</form>
+{% endblock %}

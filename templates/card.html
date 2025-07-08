@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}بطاقة الزائر{% endblock %}
+{% block content %}
+<h2>بطاقة الزائر</h2>
+<p><strong>الاسم:</strong> {{ visitor.full_name }}</p>
+<p><strong>البريد:</strong> {{ visitor.email }}</p>
+<p><strong>الهاتف:</strong> {{ visitor.phone }}</p>
+<img src="{{ url_for('static', filename='uploads/' + visitor.image_filename) }}" alt="QR Code" width="200">
+<p><a href="{{ url_for('confirm_attendance', token=visitor.qr_token) }}">رابط تأكيد الحضور (للتجربة)</a></p>
+{% endblock %}

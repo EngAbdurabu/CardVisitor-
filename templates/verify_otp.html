@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}رمز التحقق من البريد {% endblock %}
+{% block content %}
+<h2>أدخل رمز التحقق المرسل لبريدك</h2>
+<form method="post">
+    <input type="text" name="otp" placeholder="رمز التحقق" required>
+    <button type="submit">تحقق</button>
+</form>
+
+{% endblock %}

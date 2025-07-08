@@ -1,0 +1,178 @@
+body {
+    font-family: Arial;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #004aad;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+main {
+    max-width: 700px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+button {
+    background: #004aad;
+    color: white;
+    border: none;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+footer{
+    text-align:center;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 28px;
+    color: #004aad;
+    margin-bottom: 30px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.dashboard-table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-table thead {
+    background-color: #004aad;
+    color: white;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.status-yes {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+.status-no {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+}
+
+.admin-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+.scan-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.scan-btn:hover {
+    background-color: #218838;
+}
+
+.qr-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.qr-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #004aad;
+}
+
+.qr-reader {
+    width: 100% !important;
+    margin: 0 auto;
+}
+
+.qr-result {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #004aad;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00307a;
+}
+
+.back-btn {
+    background-color: #6c757d;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}

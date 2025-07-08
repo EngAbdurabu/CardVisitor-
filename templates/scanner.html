@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="qr-container">
+  <h2 class="qr-title">📷 ماسح رمز QR لتأكيد الحضور</h2>
+
+  <div id="reader" class="qr-reader"></div>
+
+  <p id="result" class="qr-result"></p>
+
+  <a href="{{ url_for('admin_dashboard') }}" class="btn back-btn">🔙 العودة للوحة التحكم</a>
+</div>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script>
+function onScanSuccess(decodedText, decodedResult) {
+    document.getElementById('result').innerText = "✅ جاري المعالجة...";
+    window.location.href = decodedText;
+    html5QrcodeScanner.clear();
+}
+
+function onScanError(errorMessage) {
+    console.log("Scan error: ", errorMessage);
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
+{% endblock %}
