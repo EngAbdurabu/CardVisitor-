@@ -176,3 +176,48 @@ footer{
 .back-btn:hover {
     background-color: #5a6268;
 }
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+}
+
+.visitor-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: bold;
+}
+
+.visitor-form input[type="text"],
+.visitor-form input[type="email"],
+.visitor-form input[type="tel"],
+.visitor-form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+}
+
+.visitor-form button {
+    width: 100%;
+    padding: 14px;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.visitor-form button:hover {
+    background-color: #00367a;
+}

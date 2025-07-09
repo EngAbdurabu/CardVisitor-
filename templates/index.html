@@ -3,14 +3,23 @@
 {% block title %}تسجيل زائر جديد{% endblock %}
 
 {% block content %}
-<h2>تسجيل زائر جديد</h2>
+<div class="form-container">
+  <h2>📝 تسجيل زائر جديد</h2>
 
-<form action="/" method="POST" enctype="multipart/form-data">
-  <input type="text" name="full_name" placeholder="الاسم الكامل" required />
-  <input type="email" name="email" placeholder="البريد الإلكتروني" required />
-  <input type="tel" name="phone" placeholder=" رقم الهاتف" required dir="rtl" />
-  <input type="file" name="photo" placeholder="الصورة الشخصية ">
-  
-  <button type="submit">تسجيل</button>
-</form>
+  <form action="/" method="POST" enctype="multipart/form-data" class="visitor-form">
+    <label>الاسم الكامل</label>
+    <input type="text" name="full_name" placeholder="الاسم الكامل" required />
+
+    <label>البريد الإلكتروني</label>
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required />
+
+    <label>رقم الهاتف</label>
+    <input type="tel" name="phone" id="phone" placeholder="رقم الهاتف" required dir="rtl" />
+
+    <label>الصورة الشخصية</label>
+    <input type="file" name="photo" accept="image/*" />
+
+    <button type="submit">📩 تسجيل</button>
+  </form>
+</div>
 {% endblock %}

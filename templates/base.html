@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{% block title %}بطاقات الزوار{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/css/intlTelInput.min.css" />
+
 </head>
 <body>
     <header>
@@ -28,5 +30,30 @@
     <footer dir="rtl">
         <p> &copy; .SkyTech 2025 جميع الحقوق محفوظة</p>
     </footer>
+
+    <!-- JavaScript الخاص بالمكتبة -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/js/utils.js"></script>
+
+  <script>
+    const input = document.querySelector("#phone");
+    const iti = window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: callback => {
+        fetch('https://ipapi.co/json')
+          .then(res => res.json())
+          .then(data => callback(data.country_code))
+          .catch(() => callback("sa")); // افتراضيًا السعودية
+      },
+      preferredCountries: ["sa", "ae", "eg", "kw", "jo", "qa", "dz", "ly", "sd", "iq", "ma", "ye"],
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/js/utils.js"
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const fullPhone = iti.getNumber();  // +966xxxxxxxxx
+      document.getElementById("result").innerText = "📱 رقم الهاتف الكامل: " + fullPhone;
+    }
+  </script>
 </body>
 </html>
